@@ -9,7 +9,7 @@ public class Point2D {
         this.y = y;
     }
     public Point2D(){
-
+        this(0,0);
     }
 
     public void setX(double x) {

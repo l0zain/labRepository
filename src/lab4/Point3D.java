@@ -10,7 +10,7 @@ public class Point3D extends Point2D{
         this.z = z;
     }
     public Point3D(){
-
+        this(0, 0, 0);
     }
 
     public void setZ(double z) {
@@ -47,12 +47,13 @@ public class Point3D extends Point2D{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point3D point3D = (Point3D) o;
-        return Double.compare(point3D.z, z) == 0;
+        return Double.compare(point3D.getX(), getX()) == 0 && Double.compare(point3D.getY(), getY()) == 0 && Double.compare(point3D.getZ(), getZ()) == 0;
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(z);
+        return Objects.hash(getX()) + Objects.hash(getY()) + Objects.hash(getZ());
     }
 }
 

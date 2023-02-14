@@ -1,4 +1,4 @@
-package lab4;
+package lab3;
 
 import java.util.Objects;
 

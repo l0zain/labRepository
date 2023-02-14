@@ -1,4 +1,4 @@
-package lab4;
+package lab3;
 
 public class Point2D {
     private double x;

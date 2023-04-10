@@ -21,7 +21,7 @@ public class Point3D extends Point2D{
         return z;
     }
     public  double[] distanceTo(Point3D[] point){
-        double[] len = new double[3];
+        double[] len = new double[3]; // point = [x1y1z1, x2y2z2,]
         int k = 0; // index
         for (int i = 0; i < 3 - 1; i ++){ // last value
             for(int j = i + 1; j < 3; j ++, k++) { // next value
@@ -44,8 +44,8 @@ public class Point3D extends Point2D{
 
     @Override // переопределяем для сравнения объектов
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
         Point3D point3D = (Point3D) o;
         return Double.compare(point3D.getX(), getX()) == 0 && Double.compare(point3D.getY(), getY()) == 0 && Double.compare(point3D.getZ(), getZ()) == 0;
     }

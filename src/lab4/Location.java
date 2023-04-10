@@ -40,4 +40,5 @@ import java.util.Objects;
         public int hashCode() {
             return Objects.hash(xCoord, yCoord);
         }
+
     }

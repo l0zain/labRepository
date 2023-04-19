@@ -4,9 +4,12 @@ import javax.swing.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.*;
 import javax.swing.JOptionPane;
+
+import static javax.imageio.ImageIO.write;
 
 public class FractalExplorer {
     private int displaySize;
@@ -122,7 +125,7 @@ public class FractalExplorer {
             if (e.getSource() instanceof JComboBox) {
                 JComboBox mySource = (JComboBox) e.getSource();
                 fractal = (FractalGenerator) mySource.getSelectedItem();
-                fractal.getInitialRange(range);
+                fractal.getInitialRange(range)  ;
                 drawFractal();
             }
             else if (action.equals("Reset")) {
@@ -137,13 +140,13 @@ public class FractalExplorer {
 
                 int userSelection = myFileChooser.showSaveDialog(display);
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
-                    java.io.File file = myFileChooser.getSelectedFile();
+                    File file = myFileChooser.getSelectedFile();
                     if (!file.getAbsolutePath().endsWith(".png")){
-                        file = new java.io.File(myFileChooser.getSelectedFile()+".png");
+                        file = new File(myFileChooser.getSelectedFile()+".png");
                     }
                     try {
                         BufferedImage displayImage = display.getDisplayImage();
-                        javax.imageio.ImageIO.write(displayImage, "png", file);
+                        write(displayImage, "png", file);
                     } catch (Exception exception) {
                         JOptionPane.showMessageDialog(display, exception.getMessage() + exception.getMessage(), "Cannot Save Image", JOptionPane.ERROR_MESSAGE);
                     }

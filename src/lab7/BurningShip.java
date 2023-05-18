@@ -9,7 +9,7 @@ public class BurningShip extends FractalGenerator
     //метод для определения области для конкретного фрактала
     public void getInitialRange(Rectangle2D.Double range) {
         range.x = -2;
-        range.y = -1.5;
+        range.y = -2.5;
         range.width = 3;
         range.height = 3;
     }
